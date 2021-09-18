@@ -10,14 +10,14 @@ class CommodityItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OverflowBox(
+    return Container(
       child: DecoratedBox(
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
           ),
           child: Container(
-            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+            padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -80,7 +80,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final List<Commodity> commodityData = Server.getCommodityData();
     var width = (MediaQuery.of(context).size.width - 60) / 2;
-    var height = width + 60;
+    var height = width + 70;
 
     return Scaffold(
       appBar: AppBar(
@@ -109,7 +109,7 @@ class _HomeState extends State<Home> {
                               },
                               child: Container(
                                   margin:
-                                      const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                      const EdgeInsets.fromLTRB(20, 5, 20, 0),
                                   child: SizedBox(
                                       child: DecoratedBox(
                                     child: Text(
@@ -129,7 +129,7 @@ class _HomeState extends State<Home> {
               // 商品列表
               Expanded(
                   child: Container(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
                 child: GridView.count(
                   childAspectRatio: (width / height),
                   scrollDirection: Axis.vertical,
@@ -138,6 +138,8 @@ class _HomeState extends State<Home> {
                   mainAxisSpacing: 20,
                   crossAxisSpacing: 20,
                   children: commodityData
+                      .where((element) =>
+                          _tab == Category.all || element.category == _tab)
                       .map((c) => CommodityItem(
                             commodity: c,
                           ))
