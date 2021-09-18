@@ -1,42 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:market/redux.dart';
+import 'package:redux/redux.dart';
+import 'package:market/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  final store = Store<List<int>>(cartReducer, initialState: []);
+
+  runApp(MyApp(store: store));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key, required this.store}) : super(key: key);
+  final Store<List<int>> store;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Market',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Market'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('market'),
-      ),
-      body: const Center(
-        child: Text('电商APP'),
-      ),
-    );
+    return StoreProvider(
+        store: store,
+        child: MaterialApp(
+          title: 'Market',
+          theme: ThemeData(
+            primarySwatch: Colors.red,
+          ),
+          home: Home(),
+        ));
   }
 }

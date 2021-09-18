@@ -1,6 +1,6 @@
-# market
+# Market
 
-使用 Flutter 开发的电商 APP
+A Flutter Demo about E-commerce shopping.
 
 ## Getting Started
 
