@@ -5,14 +5,14 @@ import 'package:redux/redux.dart';
 import 'package:market/home.dart';
 
 void main() {
-  final store = Store<List<int>>(cartReducer, initialState: []);
+  final store = Store<List<ListItem>>(cartReducer, initialState: []);
 
   runApp(MyApp(store: store));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key, required this.store}) : super(key: key);
-  final Store<List<int>> store;
+  final Store<List<ListItem>> store;
 
   @override
   Widget build(BuildContext context) {
