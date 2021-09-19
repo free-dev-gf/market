@@ -76,24 +76,25 @@ class _HomeState extends State<Home> {
               ),
               // 商品列表
               Container(
+                  height: MediaQuery.of(context).size.height - 50,
                   child: Container(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                margin: EdgeInsets.only(top: 50),
-                child: GridView.count(
-                  childAspectRatio: (width / height),
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 20,
-                  children: commodityData
-                      .where((element) => _tab == Category.all || element.category == _tab)
-                      .map((c) => CommodityItem(
-                            commodity: c,
-                          ))
-                      .toList(),
-                ),
-              )),
+                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                    margin: EdgeInsets.only(top: 50),
+                    child: GridView.count(
+                      childAspectRatio: (width / height),
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 20,
+                      children: commodityData
+                          .where((element) => _tab == Category.all || element.category == _tab)
+                          .map((c) => CommodityItem(
+                                commodity: c,
+                              ))
+                          .toList(),
+                    ),
+                  )),
               // 购物车
               Cart()
             ]));

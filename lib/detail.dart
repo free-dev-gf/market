@@ -21,7 +21,7 @@ class _DetailState extends State<Detail> {
   void initState() {
     super.initState();
     commodity = Server.getCommodityById(widget.id);
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
   }
 
   @override
@@ -89,7 +89,7 @@ class _DetailState extends State<Detail> {
                     Container(
                       margin: const EdgeInsets.only(bottom: 10),
                       child: Text(commodity.name,
-                          overflow: TextOverflow.ellipsis, maxLines: 2, style: commonTextStyle.merge(TextStyle())),
+                          overflow: TextOverflow.ellipsis, maxLines: 4, style: commonTextStyle.merge(TextStyle())),
                     ),
                   ]),
                 ),

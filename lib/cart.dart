@@ -54,7 +54,7 @@ class _CartState extends State<Cart> {
         duration: Duration(milliseconds: 300),
         width: _show ? size.width : 50,
         height: _show ? size.height : 50,
-        color: _show ? Color.fromARGB(255, 251, 235, 231) : Colors.white,
+        color: _show ? Color.fromARGB(255, 250, 250, 250) : Colors.transparent,
         curve: Curves.ease,
         child: _show
             ? StoreConnector<List<ListItem>, Store<List<ListItem>>>(

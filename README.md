@@ -1,16 +1,9 @@
 # Market
 
 A Flutter Demo about E-commerce shopping.
+一个基于 Flutter 开发的电商示例软件。
 
-## Getting Started
+打包参考：https://flutter.dev/docs/deployment/android
+踩坑：https://www.coder.work/article/7606674
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+打包指令：`flutter build apk --split-per-abi --no-sound-null-safety`
